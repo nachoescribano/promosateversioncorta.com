@@ -40,10 +40,7 @@ try {
   window.removeEventListener("testPassive", null, opts);
 } catch (e) {}
 
-
-const buttonschartChange = document.querySelectorAll(".js-chart-change");
 const elementTarget = document.getElementById("section-2");
-const ctx = document.getElementById("myChart");
 let myBar;
 
 
@@ -117,6 +114,31 @@ const barOptions = {
     },
   },
 };
+
+function goToAnchor(event) {
+  let anchorLink = event.target.getAttribute("href");
+  event.preventDefault();
+  let tmpTarget = event.target;
+  if (!anchorLink) {
+    do {
+      tmpTarget = tmpTarget.parentNode;
+    } while (!tmpTarget.getAttribute("href"));
+    anchorLink = tmpTarget.getAttribute("href");
+  }
+  const anchor = document.querySelector(
+    '[id="' + anchorLink.substring(1) + '"]'
+  );
+  if (anchor) {
+    anchor.scrollIntoView({ behavior: "smooth" });
+    navMenuList.classList.remove("nav-menu__list--show");
+    buttonMenuMobile.classList.remove("menu-sections__button-menu--active");
+  }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((anchorLink) => {
+  anchorLink.addEventListener("click", goToAnchor, false);
+  anchorLink.addEventListener("touchend", goToAnchor, false);
+});
 
 let swiper = new Array(
   document.querySelectorAll("[class*=js-swiper-container]").length
@@ -211,6 +233,21 @@ function ControlShowSlider() {
 ControlShowSlider();
 const throttledControlShowSlider = _.throttle(ControlShowSlider, 60);
 window.addEventListener("resize", throttledControlShowSlider);
+
+buttonMenuMobile.addEventListener(
+  "click",
+  (e) => {
+    buttonMenuMobile.classList.toggle("menu-sections__button-menu--active");
+  },
+  false
+);
+buttonMenuMobile.addEventListener(
+  "blur",
+  (e) => {
+    buttonMenuMobile.classList.remove("menu-sections__button-menu--active");
+  },
+  false
+);
 
 const cardsContainerInteractive = document.querySelector(
   ".js-index-cards-container--interactive"
