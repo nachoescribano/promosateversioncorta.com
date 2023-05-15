@@ -45,7 +45,17 @@ const buttonMenuMobile = document.querySelector(".js-buttonMenuMobile");
 const elementTarget = document.getElementById("section-2");
 let myBar;
 
-/*navMenuList.classList.remove("nav-menu__list--deactivate-animation");*/
+const menuSections = document.querySelector('.menu-sections');
+const menuItems = menuSections.querySelectorAll('.menu-sections__button');
+
+menuItems.forEach((menuItem) => {
+  menuItem.addEventListener('click', () => {
+    menuSections.classList.remove('nav-menu__list--show');
+    menuSections.classList.add('nav-menu__list--hide');
+    buttonMenuMobile.classList.remove('menu-sections__button-menu--active');
+  });
+});
+
 
 const menuBtnFn = () => {
   navMenuList.classList.toggle("nav-menu__list--show");
