@@ -576,8 +576,8 @@ h2 {
 }
 @media (min-width: 992px) {
   .section--cta {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .index-card {
