@@ -159,10 +159,10 @@
 .features-index__list-item {
   text-decoration: none;
   margin-top: 2rem;
-  transition: all 500ms;
+  transition: none;
 }
 .features-index__list-item:hover{
-  scale: 110%;
+  scale: inherit;
 }
 
 .features-index__link {
@@ -186,6 +186,7 @@
   border: none;
   padding: .25rem .75rem;
   font-size: .8rem;
+  margin-bottom: 1rem;
 }
 
 /* video en documentación */
@@ -334,36 +335,13 @@ h2 {
   margin-bottom: 0.375rem;
 }
 
-@media (min-width: 768px) {
-  .section__information {
-    height: 100%;
-  }   
-
-/* section title */
-.title-section {
-  background-image: url(../images/tecnico-instalando-sistema-aislamiento-termico-exterior@2x.webp);
-  background-size: cover;
-  background-position: center 25%;
-  margin-top: 77px;
-}
-.title-section__title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 4.1875rem;
-  color: var(--color-primary);
-}
-.title-section__subtitle {
-  font-size: 1.5rem;
-  color: var(--color-primary);
-}
-
-}
 /* CARD */
-
 .index-cards-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
+
 .index-cards-container.swiper-wrapper {
   flex-direction: row;
 }
@@ -390,8 +368,6 @@ h2 {
   display: none;
 }
 
-
-
 .index-card__container {
   height: 100%;
   /* min-height: 25.625rem; */
@@ -402,6 +378,7 @@ h2 {
   display: flex;
   flex-direction: column;
 }
+
 .index-card__container::before {
   content: '';
   position: absolute;
@@ -440,9 +417,11 @@ h2 {
   color: var(--color-primary);
   margin-bottom: 1rem;
 }
+
 .index-card__title--black {
   color: var(--color-black);
 }
+
 .index-card__title--center {
   text-align: center;
 }
@@ -462,11 +441,13 @@ h2 {
   /*margin-top: 2.25rem;
   margin-bottom: 2.5rem;*/
 }
+
 .index-card__subtitle--bold {
   font-weight: 500;
 }
 
-.index-card__link, .index-card__link:visited  {
+.index-card__link,
+.index-card__link:visited {
   text-decoration: none;
   display: inline-block;
   color: var(--color-accent);
@@ -474,7 +455,9 @@ h2 {
   font-weight: 400;
   /*margin-top: 2rem;*/
 }
-.index-card__link:hover, .index-card__link:active {
+
+.index-card__link:hover,
+.index-card__link:active {
   color: var(--color-primary);
 }
 
@@ -483,31 +466,37 @@ h2 {
   margin-left: 0.2rem;
   transition: transform 0.25s ease-in 0s;
 }
+
 .index-card__link:hover .index-card__link-icon {
   transform: translateX(10px);
 }
 
 .index-card__link-icon__2x {
   font-size: 1.7em;
-  margin-right:10px;
+  margin-right: 10px;
 }
+
 .index-card__link--full-width {
   display: block;
   width: 100%;
 }
+
 .index-card__link--small {
   padding: 0.375rem 0;
 }
+
 .index-card__image {
   max-width: 100%;
   object-fit: contain;
   height: auto;
   object-position: 100% 50%;
 }
+
 .index-card__image--inline {
   object-fit: contain;
   object-position: 0;
 }
+
 .index-card__regulations {
   display: flex;
   flex-wrap: wrap;
@@ -517,18 +506,22 @@ h2 {
   margin-right: -0.25rem;
 
 }
-.index-card__regulations > .index-card__regulations {
+
+.index-card__regulations>.index-card__regulations {
   margin-left: 0;
   margin-right: 0;
 }
+
 .index-card__regulations--full-width {
   width: 100%;
 }
+
 .index-card__regulation-item {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   margin-bottom: 0.5rem;
 }
+
 .index-card__regulation-item__image {
   margin-bottom: 0.5rem;
 }
@@ -536,9 +529,10 @@ h2 {
 .index-card__regulation-item--full-width {
   width: 100%;
 }
+
 .index-card__regulation-item--with-content {
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -548,32 +542,76 @@ h2 {
     margin-left: calc(-1 * var(--index-cards-gutter-h));
     margin-right: calc(-1 * var(--index-cards-gutter-h));
   }
+
   .index-card__container {
     flex-direction: row-reverse;
   }
+
   .index-card {
     width: calc(100% / 2);
     padding: var(--index-cards-gutter-v) var(--index-cards-gutter-h);
   }
+
   .index-card--xl {
     width: calc((100% / 3) * 2);
   }
+
   .index-card--full-width {
     width: 100%;
   }
+
   .index-card__image:not(.index-card__image--inline) {
     position: absolute;
     width: 50%;
     z-index: -1;
     height: 100%;
   }
-  .index-card__image:not(.index-card__image--inline) + .index-card__body {
+
+  .index-card__image:not(.index-card__image--inline)+.index-card__body {
     margin-right: 50%;
   }
-  /*.index-card__image--inline {
-    max-width: 80%;
-  }*/
+
+  .section__information {
+    height: 100%;
+  }
+
+  /* section title */
+  .title-section {
+    background-image: url(../images/tecnico-instalando-sistema-aislamiento-termico-exterior@2x.webp);
+    background-size: cover;
+    background-position: center 25%;
+    margin-top: 77px;
+  }
+
+  .title-section__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.1875rem;
+    color: var(--color-primary);
+  }
+
+  .title-section__subtitle {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+
+/* Somos INDEX */
+  .features-index__list-item {
+    transition: all 500ms;
+  }
+  .features-index__list-item:hover {
+    scale: 110%;
+  }
+  .features-index__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .swiper-container {
+    overflow: visible;
+  }
 }
+
 @media (min-width: 992px) {
   .section--cta {
     padding-top: 5rem;
